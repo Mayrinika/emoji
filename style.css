@@ -1,0 +1,25 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+.input_wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.input_button {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    width: 15px;
+    background-color: red;
+}
+
+.input_modal {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+}
