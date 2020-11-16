@@ -8,6 +8,8 @@ export function getCoords(elem) {
     const box = elem.getBoundingClientRect();
     return {
       top: box.top + pageYOffset,
-      left: box.left + pageXOffset
+      bottom: box.bottom + pageYOffset,
+      left: box.left + pageXOffset,
+      right: box.right + pageXOffset
     };
   }

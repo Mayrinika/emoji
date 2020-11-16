@@ -1,12 +1,8 @@
-import {button} from './createButton.js';
-import defaultSettings from './defaultSettings.js';
+import defaultSettings from '../settings/defaultSettings.js';
 
-function createWrapper() {
+export function createWrapper(button) {
     const wrapper = document.createElement('div');
     wrapper.classList.add(defaultSettings.classes.wrapper);
     wrapper.appendChild(button);
-
     return wrapper;
 }
-
-export const wrapper = createWrapper();

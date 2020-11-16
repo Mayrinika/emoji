@@ -1,10 +1,8 @@
-import defaultSettings from './defaultSettings.js';
+import defaultSettings from '../settings/defaultSettings.js';
 
-function createButton() {
+export function createButton() {
     const button = document.createElement('button');
     button.classList.add(defaultSettings.classes.button);
     button.innerHTML = '🦝';
     return button;
 }
-
-export const button = createButton();

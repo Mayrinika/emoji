@@ -1,29 +1,45 @@
-import defaultSettings from './defaultSettings.js';
-import {wrapper} from './createWrapper.js';
-import {button} from './createButton.js';
-import {modal} from './createModal.js';
+import defaultSettings from './settings/defaultSettings.js';
+import emojiSettings from './settings/emojiSettings.js';
+import {createWrapper} from './layout/createWrapper.js';
+import {createButton} from './layout/createButton.js';
+import {createModal} from './layout/createModal.js';
 import {findNodeByClass, getCoords} from './helpers.js';
+import CategoryModel from './model/categoryModel.js';
 
-export function emojiWidget(input, settings) {
-    const closeModalListener = function(event) {
+export class emojiWidget {
+    _store = [];
+    button = createButton();
+    wrapper = createWrapper(this.button);
+    modal;
+    closeModalListener = (event) => {
         const body = document.querySelector('body');
         if(!findNodeByClass(event.target, defaultSettings.classes.modal)) {
-            modal.remove();
-            body.removeEventListener('click', closeModalListener, true);
+            this.modal.remove();
+            body.removeEventListener('click', this.closeModalListener, true);
         }
-    };
+    };;
 
-    input.parentNode.insertBefore(wrapper, input);
-    wrapper.appendChild(input);
+    constructor(input, settings) {   
+        this.store = emojiSettings;
+        this.modal = createModal(this._store);
+        input.parentNode.insertBefore(this.wrapper, input);
+        this.wrapper.appendChild(input);
+    
+        this.button.addEventListener('click', (event) => {
+            const coords = getCoords(input);
+    
+            this.modal.style.left = coords.left + "px";
+            this.modal.style.top = coords.bottom + "px";
+    
+            const body = document.querySelector('body');
+            body.appendChild(this.modal);
+            body.addEventListener('click', this.closeModalListener, true);
+        });  
+    }
 
-    button.addEventListener('click', function (event) {
-        const coords = getCoords(input);
-
-        modal.style.left = coords.left + "px";
-        modal.style.top = coords.bottom + "px";
-
-        const body = document.querySelector('body');
-        body.appendChild(modal);
-        body.addEventListener('click', closeModalListener, true);
-    });
+    set store(value) {
+        for(const category of value) {
+            this._store.push(new CategoryModel(category.title, category.icon));
+        }
+    }
 }
