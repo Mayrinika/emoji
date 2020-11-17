@@ -106,4 +106,6 @@ body {
 .category_item {
     list-style: none;
     padding: 2px;
+    cursor: default;
+    user-select: none;
 }

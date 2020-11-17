@@ -1,15 +1,18 @@
 import EmojiModel from './emojiModel.js';
 
 export default class CategoryModel {
+    input;
     title;
     icon;
     emojiList = [];
     
-    constructor(title, icon) {
-        this.title = title;
-        this.icon = icon;
-        for(let i = 0; i < 18; i++) {
-            this.emojiList.push(new EmojiModel());
+    constructor(settings, input) {
+        this.input = input;
+        this.title = settings.title;
+        this.icon = settings.icon;
+        for(const emoji of settings.emojiList) {
+            //console.log(emoji);
+            this.emojiList.push(new EmojiModel(emoji, this.input));
         }
     }
 }

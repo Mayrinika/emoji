@@ -8,6 +8,7 @@ import CategoryModel from './model/categoryModel.js';
 
 export class emojiWidget {
     _store = [];
+    input;
     button = createButton();
     wrapper = createWrapper(this.button);
     modal;
@@ -20,13 +21,14 @@ export class emojiWidget {
     };;
 
     constructor(input, settings) {   
+        this.input = input;
         this.store = emojiSettings;
         this.modal = createModal(this._store);
-        input.parentNode.insertBefore(this.wrapper, input);
-        this.wrapper.appendChild(input);
+        this.input.parentNode.insertBefore(this.wrapper, this.input);
+        this.wrapper.appendChild(this.input);
     
         this.button.addEventListener('click', (event) => {
-            const coords = getCoords(input);
+            const coords = getCoords(this.input);
     
             this.modal.style.left = coords.left + "px";
             this.modal.style.top = coords.bottom + "px";
@@ -39,7 +41,7 @@ export class emojiWidget {
 
     set store(value) {
         for(const category of value) {
-            this._store.push(new CategoryModel(category.title, category.icon));
+            this._store.push(new CategoryModel(category, this.input));
         }
     }
 }
