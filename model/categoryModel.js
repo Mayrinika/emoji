@@ -11,7 +11,6 @@ export default class CategoryModel {
         this.title = settings.title;
         this.icon = settings.icon;
         for(const emoji of settings.emojiList) {
-            //console.log(emoji);
             this.emojiList.push(new EmojiModel(emoji, this.input));
         }
     }

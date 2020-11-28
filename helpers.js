@@ -1,6 +1,6 @@
 export function findNodeByClass(element, className) {
     const isHasClass = element.classList.contains(className);
-    if(element === document.querySelector('body') || isHasClass) return isHasClass;
+    if(element === document.body || isHasClass) return isHasClass;
     return findNodeByClass(element.parentNode, className);
 }
 

@@ -1,14 +1,13 @@
 import defaultSettings from '../settings/defaultSettings.js';
 import createCategory from './createCategory.js';
 
-export function createModal(store) {
+export function createModal(emojiCategoryList) {
     const modal = document.createElement('div');
     modal.classList.add(defaultSettings.classes.modal);
     
     const nav = document.createElement('nav');
     nav.classList.add('navigation');
-
-    for(const category of store) {
+    for(const category of emojiCategoryList) { 
         nav.appendChild(createNavTab(category));
     }
 
@@ -21,7 +20,7 @@ export function createModal(store) {
 
     const content = document.createElement('div');
     content.classList.add('content');
-    for(const category of store) {
+    for(const category of emojiCategoryList) { 
         content.appendChild(createCategory(category));
     }
 
@@ -31,9 +30,9 @@ export function createModal(store) {
     return modal;
 }
 
-function createNavTab(store) {
+function createNavTab(emojiCategoryList) {
     const button = document.createElement('button');
     button.classList.add('navigation-item');
-    button.innerHTML = store.icon;
+    button.textContent = emojiCategoryList.icon;
     return button;
 }
