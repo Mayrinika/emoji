@@ -7,40 +7,65 @@ import {findNodeByClass, getCoords} from './helpers.js';
 import CategoryModel from './model/categoryModel.js';
 
 export class EmojiWidget {
-    _emojiCategoryList = [];
+    static targetInput;
+    static searchInput;
+    static emojiCategoryList = setEmojiCategoryList(emojiSettings);
+    static modal = createModal(this.emojiCategoryList);
     input;
     button = createButton();
     wrapper = createWrapper(this.button);
-    modal;
+    
     closeModalListener = (event) => {
         if (!findNodeByClass(event.target, defaultSettings.classes.modal)) {
-            this.modal.remove();
-            document.body.removeEventListener('click', this.closeModalListener, true);
+            EmojiWidget.modal.remove();
+            document.body.removeEventListener('mousedown', this.closeModalListener, true);
+            EmojiWidget.filterEmoji('');
+            EmojiWidget.searchInput.value = '';
         }
     };
 
     constructor(input, settings) {
         this.input = input;
-        this.emojiCategoryList = emojiSettings;
-        this.modal = createModal(this._emojiCategoryList);
         this.input.parentNode.insertBefore(this.wrapper, this.input);
         this.wrapper.appendChild(this.input);
 
         this.button.addEventListener('click', (event) => {
+            EmojiWidget.targetInput = this.input;
+
             const coords = getCoords(this.input);
 
-            this.modal.style.left = coords.left + "px";
-            this.modal.style.top = coords.bottom + "px";
+            EmojiWidget.modal.style.left = coords.left + "px";
+            EmojiWidget.modal.style.top = coords.bottom + "px";
 
             const body = document.querySelector('body');
-            body.appendChild(this.modal);
-            body.addEventListener('click', this.closeModalListener, true);
+            body.appendChild(EmojiWidget.modal);
+            body.addEventListener('mousedown', this.closeModalListener, true);
         });
     }
 
-    set emojiCategoryList(value) {
-        for (const category of value) {
-            this._emojiCategoryList.push(new CategoryModel(category, this.input));
+    static filterEmoji(filterString) {
+        for(const categoryModel of this.emojiCategoryList) {
+            let hasEmoji = false;
+            for(const emojiModel of categoryModel.emojiList) {
+                let hasString = false;
+                for(const keyword of emojiModel.keywords) {
+                    const result = keyword.indexOf(filterString, 0);
+                    if(result !== -1) {
+                        hasString = true;
+                        hasEmoji = true;
+                    }
+                }
+                emojiModel.visibleView(hasString);
+            }
+            categoryModel.visibleView(hasEmoji);
         }
     }
+}
+
+function setEmojiCategoryList(value) {
+    const resultList = [];
+    for (const category of value) {
+        resultList.push(new CategoryModel(category));
+    }
+    return resultList;
 }

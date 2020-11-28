@@ -37,6 +37,28 @@ body {
     flex-direction: column;
 }
 
+.input_dark {
+    color: #fff;
+    background-color: rgb(54, 53, 53);
+    border: solid 1px #000;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.input_dark .category_title {
+    background-color:  rgb(54, 53, 53);
+    box-shadow: 0 5px 5px rgb(54, 53, 53);
+}
+
+.input_dark .search-input {
+    background-color:  rgb(90, 89, 89);
+    color: white;
+}
+
+
+.input_dark .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .navigation {
     border-bottom: solid 1px #c4c4c4;
     display: grid;
@@ -110,4 +132,8 @@ body {
     padding: 2px;
     cursor: default;
     user-select: none;
+}
+
+.hide {
+    display: none;
 }

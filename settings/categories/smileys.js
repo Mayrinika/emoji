@@ -4,439 +4,439 @@ export default {
     emojiList: [
         {
             emotion: '😀',
-            keywords: []
+            keywords: ['grinning', 'face']
         },
         {
             emotion: '😃',
-            keywords: []
+            keywords: ['grinning', 'face with big eyes']
         },
         {
             emotion: '😄',
-            keywords: []
+            keywords: ['grinning', 'face with smiling']
         },
         {
             emotion: '😁',
-            keywords: []
+            keywords: ['beaming', 'face with smiling']
         },
         {
             emotion: '😆',
-            keywords: []
+            keywords: ['grinning', 'squinting face']
         },
         {
             emotion: '😅',
-            keywords: []
+            keywords: ['grinning', 'face with sweat']
         },
         {
             emotion: '😂',
-            keywords: []
+            keywords: ['face with tears of joy']
         },
         {
             emotion: '🤣',
-            keywords: []
+            keywords: ['rolling on the floor']
         },
         {
             emotion: '😊',
-            keywords: []
+            keywords: ['smiling', 'face with smiling']
         },
         {
             emotion: '😇',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🙂',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🙃',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😉',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😌',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😍',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🥰',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😘',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😗',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😙',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😚',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😋',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😛',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😝',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😜',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤪',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤨',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🧐',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤓',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😎',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤩',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🥳',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😏',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😒',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😞',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😔',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😟',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😕',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🙁',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '☹️',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😣',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😖',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😫',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😩',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🥺',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😢',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😭',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😤',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😠',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😡',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤬',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤯',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😳',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🥵',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🥶',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😱',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😨',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😰',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😥',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😓',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤗',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤔',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤭',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤫',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤥',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😶',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😐',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😑',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😬',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🙄',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😯',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😦',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😧',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😮',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😲',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🥱',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😴',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤤',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😪',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😵',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤐',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🥴',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤢',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤮',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤧',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😷',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤒',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤕',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤑',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤠',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😈',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '👿',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '👹',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '👺',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤡',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '💩',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '👻',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '💀',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '☠️',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '👽',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '👾',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🤖',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🎃',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😺',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😸',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😹',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😻',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😼',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '😽',
-            keywords: []
+            keywords: ['smiling']
         },
         {
             emotion: '🙀',
-            keywords: []
+            keywords: ['smiling']
         },
     ]
 }
