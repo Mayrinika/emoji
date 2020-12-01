@@ -14,7 +14,7 @@ export class EmojiWidget {
     input;
     button = createButton();
     wrapper = createWrapper(this.button);
-    
+
     closeModalListener = (event) => {
         if (!findNodeByClass(event.target, defaultSettings.classes.modal)) {
             EmojiWidget.modal.remove();
@@ -44,16 +44,14 @@ export class EmojiWidget {
     }
 
     static filterEmoji(filterString) {
-        for(const categoryModel of this.emojiCategoryList) {
+        for (const categoryModel of this.emojiCategoryList) {
             let hasEmoji = false;
-            for(const emojiModel of categoryModel.emojiList) {
+            for (const emojiModel of categoryModel.emojiList) {
                 let hasString = false;
-                for(const keyword of emojiModel.keywords) {
-                    const result = keyword.indexOf(filterString, 0);
-                    if(result !== -1) {
-                        hasString = true;
-                        hasEmoji = true;
-                    }
+                const result = emojiModel.keywords.indexOf(filterString, 0);
+                if (result !== -1) {
+                    hasString = true;
+                    hasEmoji = true;
                 }
                 emojiModel.visibleView(hasString);
             }
