@@ -74,6 +74,17 @@ body {
     border: none;
     flex-grow: 1;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    transition: .2s background-color;
+}
+
+.navigation-item:hover {
+    background-color: #c4c4c4;
 }
 
 .navigation-item:focus { 
@@ -132,6 +143,18 @@ body {
     padding: 2px;
     cursor: default;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    transition: .2s background-color;
+}
+
+.category_item:hover {
+    background-color: #c4c4c4;
 }
 
 .hide {
