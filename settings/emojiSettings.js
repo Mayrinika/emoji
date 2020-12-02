@@ -10,12 +10,14 @@ function parsing() {
     const strings = emojiData.split('\n');
     for (const string of strings) {
         if (string === '') continue;
-        if (string.indexOf('unqualified') !== -1) continue;
+        if (string.includes('unqualified')) continue;
+        if (string.includes('component')) continue;
+        if (string.includes('Component')) continue;
         if (string[0] === '#') {
-            if (string.indexOf('subgroup') !== -1) continue;
-            else if (string.indexOf('group') !== -1) {
+            if (string.includes('subgroup')) continue;
+            else if (string.includes('group')) {
                 category.title = string.slice(9);
-            } else if (string.indexOf('subtotal') !== -1) {
+            } else if (string.includes('subtotal')) {
                 numberOfSubtotal++;
                 if (numberOfSubtotal === 2) {
                     category.icon = category.emojiList[0].emotion;
