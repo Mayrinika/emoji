@@ -21,7 +21,7 @@ export default class CategoryModel {
         return this._view;
     }
 
-    visibleView(isVisible) {
+    setHidden(isVisible) {
         if(isVisible) {
             this._view.classList.remove('hide');
         } else {

@@ -48,14 +48,13 @@ export class EmojiWidget {
             let hasEmoji = false;
             for (const emojiModel of categoryModel.emojiList) {
                 let hasString = false;
-                const result = emojiModel.keywords.indexOf(filterString, 0);
-                if (result !== -1) {
+                if (emojiModel.keywords.includes(filterString)) {
                     hasString = true;
                     hasEmoji = true;
                 }
-                emojiModel.visibleView(hasString);
+                emojiModel.setHidden(hasString);
             }
-            categoryModel.visibleView(hasEmoji);
+            categoryModel.setHidden(hasEmoji);
         }
     }
 }

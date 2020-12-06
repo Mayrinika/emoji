@@ -1,11 +1,11 @@
-import { EmojiWidget } from '../EmojiWidget.js';
+import {EmojiWidget} from '../EmojiWidget.js';
 import defaultSettings from '../settings/defaultSettings.js';
 import createCategory from './createCategory.js';
 
 export function createModal(emojiCategoryList) {
     const modal = document.createElement('div');
     modal.classList.add(defaultSettings.classes.modal);
-    
+
     const nav = document.createElement('nav');
     nav.classList.add('navigation');
 
@@ -26,12 +26,12 @@ export function createModal(emojiCategoryList) {
 
     const content = document.createElement('div');
     content.classList.add('content');
-    for(const category of emojiCategoryList) { 
+    for (const category of emojiCategoryList) {
         const button = createNavTab(category);
         const categoryBlock = createCategory(category);
 
         category.view = categoryBlock;
-        
+
         button.addEventListener('click', () => {
             categoryBlock.scrollIntoView(true);
         });
@@ -44,15 +44,19 @@ export function createModal(emojiCategoryList) {
     footer.classList.add('settings');
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
+
+    const label = document.createElement('label');
+    label.textContent = 'dark';
+    label.appendChild(checkbox);
+
     checkbox.addEventListener('change', () => {
-        if(checkbox.checked) {
+        if (checkbox.checked) {
             modal.classList.add(defaultSettings.classes.dark);
         } else {
             modal.classList.remove(defaultSettings.classes.dark);
         }
     });
-    footer.appendChild(checkbox);
-
+    footer.appendChild(label);
     modal.appendChild(nav);
     modal.appendChild(search);
     modal.appendChild(content);
