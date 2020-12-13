@@ -3,7 +3,7 @@ import {EmojiWidget} from '../EmojiWidget.js';
 export default class EmojiModel {
     keywords;
     emotion;
-    _view;
+    view;
 
     constructor(settings) {
         this.emotion = settings.emotion;
@@ -14,18 +14,11 @@ export default class EmojiModel {
         EmojiWidget.targetInput.value += this.emotion;
     }
 
-    set view(value) {
-        this._view = value;
-    }
-    get view() {
-        return this._view;
-    }
-
     setHidden(isVisible) {
         if(isVisible) {
-            this._view.classList.remove('hide');
+            this.view.classList.remove('hide');
         } else {
-            this._view.classList.add('hide');
+            this.view.classList.add('hide');
         }
     }
 }
