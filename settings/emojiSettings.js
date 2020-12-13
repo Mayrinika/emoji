@@ -1,27 +1,42 @@
-import Smileys from './categories/smileys.js';
-import GesturesAndBodyParts from './categories/gesturesAndBodyParts.js';
-import PeopleAndFantasy from './categories/peopleAndFantasy.js';
-import ClothingAndAccessories from './categories/clothingAndAccessories.js';
-import PaleEmojis from './categories/paleEmojis.js';
-import AnimalsAndNature from './categories/animalsAndNature.js';
-import FoodAndDrink from './categories/foodAndDrink.js';
-import ActivityAndSports from './categories/activityAndSports.js';
-import TravelAndPlaces from './categories/travelAndPlaces.js';
-import Objects from './categories/objects.js';
-import Symbols from './categories/symbols.js';
-import Flags from './categories/flags.js';
+import emojiData from './emojiData.js';
 
-export default [
-    Smileys,
-    GesturesAndBodyParts,
-    PeopleAndFantasy,
-    ClothingAndAccessories,
-    PaleEmojis,
-    AnimalsAndNature,
-    FoodAndDrink,
-    ActivityAndSports,
-    TravelAndPlaces,
-    Objects,
-    Symbols,
-    Flags,
-];
+function parsing() {
+    const result = [];
+    let category = {
+        title: '',
+        emojiList: [],
+    };
+    const strings = emojiData.toLowerCase().split('\n');
+    for (const string of strings) {
+        if (string === '' || string.includes('unqualified') || string.includes('component')) continue;
+        if (string[0] === '#') {
+            if (string.includes('subgroup')) continue;
+            else if (string.includes('group')) {
+                category.title = string.slice(9);
+            } else if (string.includes('modifiers')) {
+                category.icon = category.emojiList[0].emotion;
+                result.push(category);
+                category = {
+                    title: '',
+                    emojiList: [],
+                };
+            }
+        } else {
+            category.emojiList.push(parseEmojiList(string));
+        }
+    }
+    return result;
+}
+
+function parseEmojiList(string) {
+    const partsOfString = string
+        .split(/[;|#]/)
+        .map(str => str.trim());
+    const firstSpaceAfterEmoji = partsOfString[2].indexOf(' ');
+    return {
+        emotion: partsOfString[2].slice(0, firstSpaceAfterEmoji),
+        keywords: partsOfString[2].slice(firstSpaceAfterEmoji + 1),
+    }
+}
+
+export default parsing();

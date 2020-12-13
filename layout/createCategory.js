@@ -11,7 +11,9 @@ export default function createCategory(categoryModel) {
 
     title.textContent = categoryModel.title;
     for(const emoji of categoryModel.emojiList) {
-        list.appendChild(createEmoji(emoji));
+        const emojiView = createEmoji(emoji);
+        list.appendChild(emojiView);
+        emoji.view = emojiView;
     }
 
     category.appendChild(title);

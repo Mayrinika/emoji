@@ -1,4 +1,4 @@
-import {EmojiWidget} from './emojiWidget.js';
+import {EmojiWidget} from './EmojiWidget.js';
 
 const inputList = document.querySelectorAll('input');
 for(const input of inputList) {
