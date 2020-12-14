@@ -30,6 +30,8 @@ export class EmojiWidget {
         this.wrapper.appendChild(this.input);
 
         this.button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
             EmojiWidget.targetInput = this.input;
 
             const coords = getCoords(this.input);
