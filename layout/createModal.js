@@ -33,7 +33,9 @@ export function createModal(emojiCategoryList) {
         category.view = categoryBlock;
 
         button.addEventListener('click', () => {
-            categoryBlock.scrollIntoView(true);
+            const contentOffset = 10;
+            console.log(categoryBlock.offsetTop);
+            content.scrollTop = categoryBlock.offsetTop - contentOffset;
         });
 
         nav.appendChild(button);

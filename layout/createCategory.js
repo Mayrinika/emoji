@@ -2,7 +2,7 @@ import createEmoji from './createEmoji.js';
 
 export default function createCategory(categoryModel) {
     const category = document.createElement('article');
-    const title = document.createElement('h2');
+    const title = document.createElement('div');
     const list = document.createElement('ul');
 
     category.classList.add('category');

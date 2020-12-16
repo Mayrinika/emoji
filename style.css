@@ -21,6 +21,15 @@ body {
     border: none;
 }
 
+.input_button span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 .input_button:focus {
     outline: 0
 }
@@ -35,6 +44,7 @@ body {
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 
 .input_dark {

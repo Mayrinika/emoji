@@ -53,7 +53,6 @@ export default `# emoji-test.txt
 1F929                                      ; fully-qualified     # 🤩 star-struck
 1F618                                      ; fully-qualified     # 😘 face blowing a kiss
 1F617                                      ; fully-qualified     # 😗 kissing face
-263A FE0F                                  ; fully-qualified     # ☺️ smiling face
 263A                                       ; unqualified         # ☺ smiling face
 1F61A                                      ; fully-qualified     # 😚 kissing face with closed eyes
 1F619                                      ; fully-qualified     # 😙 kissing face with smiling eyes
