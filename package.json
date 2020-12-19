@@ -4,6 +4,7 @@
   "description": "Задача сделать встраиваемый на другие сайты инструмент для выбора эмоджи.",
   "scripts": {
     "start": "webpack --mode development --watch",
+    "babel": "npx babel src --out-dir dist --plugins=@babel/proposal-class-properties --presets=@babel/preset-env",
     "build": "webpack --mode production",
     "PreublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/Mayrinika/emoji#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/cli": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
