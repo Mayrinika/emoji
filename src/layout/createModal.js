@@ -4,15 +4,15 @@ import createCategory from './createCategory.js';
 
 export function createModal(emojiCategoryList) {
     const modal = document.createElement('div');
-    modal.classList.add(defaultSettings.classes.modal);
+    modal.classList.add(defaultSettings.classes.modal.main);
 
     const nav = document.createElement('nav');
-    nav.classList.add('navigation');
+    nav.classList.add(defaultSettings.classes.navigation.main);
 
     const search = document.createElement('div');
-    search.classList.add('search');
+    search.classList.add(defaultSettings.classes.search.main);
     const searchInput = document.createElement('input');
-    searchInput.classList.add('search-input');
+    searchInput.classList.add(defaultSettings.classes.search.input);
     searchInput.placeholder = 'Search';
     search.appendChild(searchInput);
 
@@ -25,7 +25,7 @@ export function createModal(emojiCategoryList) {
     }, 0);
 
     const content = document.createElement('div');
-    content.classList.add('content');
+    content.classList.add(defaultSettings.classes.modal.content);
     for (const category of emojiCategoryList) {
         const button = createNavTab(category);
         const categoryBlock = createCategory(category);
@@ -34,7 +34,6 @@ export function createModal(emojiCategoryList) {
 
         button.addEventListener('click', () => {
             const contentOffset = 10;
-            console.log(categoryBlock.offsetTop);
             content.scrollTop = categoryBlock.offsetTop - contentOffset;
         });
 
@@ -43,7 +42,7 @@ export function createModal(emojiCategoryList) {
     }
 
     const footer = document.createElement('footer');
-    footer.classList.add('settings');
+    footer.classList.add(defaultSettings.classes.modal.settings);
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
 
@@ -68,7 +67,7 @@ export function createModal(emojiCategoryList) {
 
 function createNavTab(emojiCategoryList) {
     const button = document.createElement('button');
-    button.classList.add('navigation-item');
+    button.classList.add(defaultSettings.classes.navigation.item);
     button.textContent = emojiCategoryList.icon;
     return button;
 }

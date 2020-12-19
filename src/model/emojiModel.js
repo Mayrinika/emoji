@@ -1,4 +1,5 @@
 import {EmojiWidget} from '../EmojiWidget.js';
+import defaultSettings from "../settings/defaultSettings.js";
 
 export default class EmojiModel {
     keywords;
@@ -16,9 +17,9 @@ export default class EmojiModel {
 
     setHidden(isVisible) {
         if(isVisible) {
-            this.view.classList.remove('hide');
+            this.view.classList.remove(defaultSettings.classes.emoji.hide);
         } else {
-            this.view.classList.add('hide');
+            this.view.classList.add(defaultSettings.classes.emoji.hide);
         }
     }
 }

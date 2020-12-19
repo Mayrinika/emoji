@@ -16,7 +16,7 @@ export class EmojiWidget {
     wrapper = createWrapper(this.button);
 
     closeModalListener = (event) => {
-        if (!findNodeByClass(event.target, defaultSettings.classes.modal)) {
+        if (!findNodeByClass(event.target, defaultSettings.classes.modal.main)) {
             EmojiWidget.modal.remove();
             document.body.removeEventListener('mousedown', this.closeModalListener, true);
             EmojiWidget.filterEmoji('');

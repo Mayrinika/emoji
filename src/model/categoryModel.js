@@ -1,4 +1,5 @@
 import EmojiModel from './emojiModel.js';
+import defaultSettings from "../settings/defaultSettings.js";
 
 export default class CategoryModel {
     title;
@@ -16,9 +17,9 @@ export default class CategoryModel {
 
     setHidden(isVisible) {
         if(isVisible) {
-            this.view.classList.remove('hide');
+            this.view.classList.remove(defaultSettings.classes.category.hide);
         } else {
-            this.view.classList.add('hide');
+            this.view.classList.add(defaultSettings.classes.category.hide);
         }
     }
 }

@@ -59,13 +59,13 @@ body {
     box-shadow: 0 5px 5px rgb(54, 53, 53);
 }
 
-.input_dark .search-input {
+.input_dark .search_input {
     background-color:  rgb(90, 89, 89);
     color: white;
 }
 
 
-.input_dark .search-input::placeholder {
+.input_dark .search_input::placeholder {
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -76,7 +76,7 @@ body {
     margin-bottom: 10px;
 }
 
-.navigation-item {
+.navigation_item {
     margin: 0;
     padding: 5px 2px;
     box-shadow: none;
@@ -93,11 +93,11 @@ body {
     transition: .2s background-color;
 }
 
-.navigation-item:hover {
+.navigation_item:hover {
     background-color: #c4c4c4;
 }
 
-.navigation-item:focus { 
+.navigation_item:focus {
     outline: 0 
 }
 
@@ -106,7 +106,7 @@ body {
     margin-bottom: 10px;
 }
 
-.search-input {
+.search_input {
     border-radius: 3px;
     border: solid 1px #c4c4c4;
     width: 100%;
@@ -115,7 +115,7 @@ body {
     line-height: 1.5em;
 }
 
-.search-input:focus { 
+.search_input:focus {
     outline: 0 
 }
 
@@ -169,4 +169,8 @@ body {
 
 .hide {
     display: none;
+}
+
+.settings {
+
 }
