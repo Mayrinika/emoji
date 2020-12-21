@@ -1,6 +1,6 @@
 {
   "name": "emojiwidget",
-  "version": "1.0.",
+  "version": "1.0.5",
   "description": "Задача сделать встраиваемый на другие сайты инструмент для выбора эмоджи.",
   "main": "index.js",
   "scripts": {

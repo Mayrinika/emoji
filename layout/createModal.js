@@ -1,8 +1,11 @@
 import {EmojiWidget} from '../EmojiWidget.js';
 import defaultSettings from '../settings/defaultSettings.js';
 import createCategory from './createCategory.js';
+import CategoryModel from '../model/categoryModel.js';
+import {Context} from "../Context.js";
 
 export function createModal(emojiCategoryList) {
+    //console.log(emojiCategoryList); //TODO
     const modal = document.createElement('div');
     modal.classList.add(defaultSettings.classes.modal);
 
@@ -20,9 +23,8 @@ export function createModal(emojiCategoryList) {
         const searchString = e.target.value.toLowerCase();
         EmojiWidget.filterEmoji(searchString);
     });
-    setTimeout(() => { // TODO: Таймер нужен потому что мы обращаемся к EmojiWidget.searchInput в момент когда инициализируется сам EmojiWidget. Это нормально? 😅
-        EmojiWidget.searchInput = searchInput;
-    }, 0);
+
+    Context.searchInput = searchInput;
 
     const content = document.createElement('div');
     content.classList.add('content');
@@ -33,8 +35,7 @@ export function createModal(emojiCategoryList) {
         category.view = categoryBlock;
 
         button.addEventListener('click', () => {
-            const contentOffset = 10;
-            console.log(categoryBlock.offsetTop);
+            const contentOffset = 80;
             content.scrollTop = categoryBlock.offsetTop - contentOffset;
         });
 
@@ -58,7 +59,24 @@ export function createModal(emojiCategoryList) {
             modal.classList.remove(defaultSettings.classes.dark);
         }
     });
+
+    const radioGold = document.createElement('input');
+    radioGold.setAttribute('type', 'radio');
+    radioGold.setAttribute('name', 'color');
+    radioGold.setAttribute('checked', 'true');
+    radioGold.addEventListener('change', () => {
+        Context.changeColor('gold');
+    });
+    const radioLight = document.createElement('input');
+    radioLight.setAttribute('type', 'radio');
+    radioLight.setAttribute('name', 'color');
+    radioLight.addEventListener('change', () => {
+        Context.changeColor('light');
+    });
+
     footer.appendChild(label);
+    footer.appendChild(radioGold);
+    footer.appendChild(radioLight);
     modal.appendChild(nav);
     modal.appendChild(search);
     modal.appendChild(content);

@@ -1,4 +1,5 @@
 import {EmojiWidget} from '../EmojiWidget.js';
+import {Context} from "../Context.js";
 
 export default class EmojiModel {
     keywords;
@@ -11,7 +12,8 @@ export default class EmojiModel {
     }
 
     onClick (params) {
-        EmojiWidget.targetInput.value += this.emotion;
+        const emoji = this.emotion[Context.color] || this.emotion.gold;
+        EmojiWidget.targetInput.value += emoji;
     }
 
     setHidden(isVisible) {
