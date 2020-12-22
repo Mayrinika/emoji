@@ -24,7 +24,7 @@ export class EmojiWidget {
         }
     };
 
-    constructor(input, settings) {
+    constructor(input) {
         this.input = input;
         this.input.parentNode.insertBefore(this.wrapper, this.input);
         this.wrapper.appendChild(this.input);

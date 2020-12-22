@@ -1,7 +1,8 @@
-import {EmojiWidget} from '../EmojiWidget.js';
 import defaultSettings from '../settings/defaultSettings.js';
 import createCategory from './createCategory.js';
-import {Context} from "../Context.js";
+import {createSearch} from "./createSearch.js";
+import {createColorPanel} from "./createColorPanel.js";
+import {createThemeButton} from "./createThemeButton.js";
 
 export function createModal(emojiCategoryList) {
     const modal = document.createElement('div');
@@ -28,23 +29,6 @@ function createNavTab(emojiCategoryList) {
     return button;
 }
 
-function createSearch() {
-    const search = document.createElement('div');
-    search.classList.add('search');
-    const searchInput = document.createElement('input');
-    searchInput.classList.add('search-input');
-    searchInput.placeholder = 'Search';
-    search.appendChild(searchInput);
-
-    searchInput.addEventListener('input', (e) => {
-        const searchString = e.target.value.toLowerCase();
-        EmojiWidget.filterEmoji(searchString);
-    });
-
-    Context.searchInput = searchInput;
-    return search;
-}
-
 function createContent(nav, emojiCategoryList) {
     const content = document.createElement('div');
     content.classList.add('content');
@@ -66,40 +50,17 @@ function createContent(nav, emojiCategoryList) {
 }
 
 function createFooter(modal) {
-    const footer = document.createElement('footer');
-    footer.classList.add('settings');
-
-    const checkbox = document.createElement('input');
-    checkbox.setAttribute('type', 'checkbox');
-
-    const label = document.createElement('label');
-    label.textContent = 'dark';
-    label.appendChild(checkbox);
-
-    checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
+    const onThemeChange = (dark) => {
+        if(dark) {
             modal.classList.add(defaultSettings.classes.dark);
         } else {
             modal.classList.remove(defaultSettings.classes.dark);
         }
-    });
-    footer.appendChild(label);
-
-    const colors = ['gold', 'light', 'medium-light', 'medium', 'medium-dark', 'dark'];
-    for(const color of colors) {
-        createRadioButton(color, footer);
     }
-    return footer;
-}
+    const footer = document.createElement('footer');
+    footer.classList.add('settings');
 
-function createRadioButton(color, footer) {
-    const radio = document.createElement('input');
-    if(color === 'gold')
-        radio.setAttribute('checked', 'true');
-    radio.setAttribute('type', 'radio');
-    radio.setAttribute('name', 'color');
-    radio.addEventListener('change', () => {
-        Context.changeColor(color);
-    });
-    footer.appendChild(radio);
+    footer.appendChild(createThemeButton(onThemeChange));
+    footer.appendChild(createColorPanel())
+    return footer;
 }
