@@ -65,7 +65,6 @@ export class EmojiWidget {
 function setEmojiCategoryList(value) {
     const resultList = [];
     for (const category of value) {
-        //console.log(category); //TODO
         resultList.push(new CategoryModel(category));
     }
     return resultList;

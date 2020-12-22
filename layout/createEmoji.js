@@ -3,7 +3,7 @@ import {Context} from "../Context.js";
 
 export default function createEmoji(emojiModel) {
     function setEmoji(color) {
-        emoji.innerHTML = emojiModel.emotion[color] || emojiModel.emotion.gold;
+        emoji.innerHTML = emojiModel.emotions[color] || emojiModel.emotions.gold;
     }
 
     const emoji = document.createElement('li');

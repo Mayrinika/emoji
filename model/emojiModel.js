@@ -3,16 +3,16 @@ import {Context} from "../Context.js";
 
 export default class EmojiModel {
     keywords;
-    emotion;
+    emotions;
     view;
 
     constructor(settings) {
-        this.emotion = settings.emotion;
+        this.emotions = settings.emotions;
         this.keywords = settings.keywords;
     }
 
     onClick (params) {
-        const emoji = this.emotion[Context.color] || this.emotion.gold;
+        const emoji = this.emotions[Context.color] || this.emotions.gold;
         EmojiWidget.targetInput.value += emoji;
     }
 
