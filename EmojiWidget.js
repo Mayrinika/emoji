@@ -5,10 +5,10 @@ import {createButton} from './layout/createButton.js';
 import {createModal} from './layout/createModal.js';
 import {findNodeByClass, getCoords} from './helpers.js';
 import CategoryModel from './model/categoryModel.js';
+import {Context} from "./Context.js";
 
 export class EmojiWidget {
     static targetInput;
-    static searchInput;
     static emojiCategoryList = setEmojiCategoryList(emojiSettings);
     static modal = createModal(this.emojiCategoryList);
     input;
@@ -20,16 +20,18 @@ export class EmojiWidget {
             EmojiWidget.modal.remove();
             document.body.removeEventListener('mousedown', this.closeModalListener, true);
             EmojiWidget.filterEmoji('');
-            EmojiWidget.searchInput.value = '';
+            Context.searchInput.value = '';
         }
     };
 
-    constructor(input, settings) {
+    constructor(input) {
         this.input = input;
         this.input.parentNode.insertBefore(this.wrapper, this.input);
         this.wrapper.appendChild(this.input);
 
         this.button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
             EmojiWidget.targetInput = this.input;
 
             const coords = getCoords(this.input);
@@ -58,6 +60,7 @@ export class EmojiWidget {
         }
     }
 }
+
 
 function setEmojiCategoryList(value) {
     const resultList = [];

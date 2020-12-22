@@ -1,6 +1,8 @@
-import {EmojiWidget} from '../EmojiWidget.js';
 import defaultSettings from '../settings/defaultSettings.js';
 import createCategory from './createCategory.js';
+import {createSearch} from "./createSearch.js";
+import {createColorPanel} from "./createColorPanel.js";
+import {createThemeButton} from "./createThemeButton.js";
 
 export function createModal(emojiCategoryList) {
     const modal = document.createElement('div');
@@ -9,54 +11,10 @@ export function createModal(emojiCategoryList) {
     const nav = document.createElement('nav');
     nav.classList.add('navigation');
 
-    const search = document.createElement('div');
-    search.classList.add('search');
-    const searchInput = document.createElement('input');
-    searchInput.classList.add('search-input');
-    searchInput.placeholder = 'Search';
-    search.appendChild(searchInput);
+    const search = createSearch();
+    const content = createContent(nav, emojiCategoryList);
+    const footer = createFooter(modal);
 
-    searchInput.addEventListener('input', (e) => {
-        const searchString = e.target.value.toLowerCase();
-        EmojiWidget.filterEmoji(searchString);
-    });
-    setTimeout(() => { // TODO: Таймер нужен потому что мы обращаемся к EmojiWidget.searchInput в момент когда инициализируется сам EmojiWidget. Это нормально? 😅
-        EmojiWidget.searchInput = searchInput;
-    }, 0);
-
-    const content = document.createElement('div');
-    content.classList.add('content');
-    for (const category of emojiCategoryList) {
-        const button = createNavTab(category);
-        const categoryBlock = createCategory(category);
-
-        category.view = categoryBlock;
-
-        button.addEventListener('click', () => {
-            categoryBlock.scrollIntoView(true);
-        });
-
-        nav.appendChild(button);
-        content.appendChild(categoryBlock);
-    }
-
-    const footer = document.createElement('footer');
-    footer.classList.add('settings');
-    const checkbox = document.createElement('input');
-    checkbox.setAttribute('type', 'checkbox');
-
-    const label = document.createElement('label');
-    label.textContent = 'dark';
-    label.appendChild(checkbox);
-
-    checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-            modal.classList.add(defaultSettings.classes.dark);
-        } else {
-            modal.classList.remove(defaultSettings.classes.dark);
-        }
-    });
-    footer.appendChild(label);
     modal.appendChild(nav);
     modal.appendChild(search);
     modal.appendChild(content);
@@ -69,4 +27,40 @@ function createNavTab(emojiCategoryList) {
     button.classList.add('navigation-item');
     button.textContent = emojiCategoryList.icon;
     return button;
+}
+
+function createContent(nav, emojiCategoryList) {
+    const content = document.createElement('div');
+    content.classList.add('content');
+    for (const category of emojiCategoryList) {
+        const button = createNavTab(category);
+        const categoryBlock = createCategory(category);
+
+        category.view = categoryBlock;
+
+        button.addEventListener('click', () => {
+            const contentOffset = 80;
+            content.scrollTop = categoryBlock.offsetTop - contentOffset;
+        });
+
+        nav.appendChild(button);
+        content.appendChild(categoryBlock);
+    }
+    return content;
+}
+
+function createFooter(modal) {
+    const onThemeChange = (dark) => {
+        if(dark) {
+            modal.classList.add(defaultSettings.classes.dark);
+        } else {
+            modal.classList.remove(defaultSettings.classes.dark);
+        }
+    }
+    const footer = document.createElement('footer');
+    footer.classList.add('settings');
+
+    footer.appendChild(createThemeButton(onThemeChange));
+    footer.appendChild(createColorPanel())
+    return footer;
 }

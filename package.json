@@ -1,6 +1,6 @@
 {
-  "name": "emoji",
-  "version": "1.0.0",
+  "name": "emojiwidget",
+  "version": "1.0.5",
   "description": "Задача сделать встраиваемый на другие сайты инструмент для выбора эмоджи.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Mayrinika/emoji.git"
   },
-  "author": "",
+  "author": "mayrinika",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Mayrinika/emoji/issues"

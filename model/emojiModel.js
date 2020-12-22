@@ -1,17 +1,19 @@
 import {EmojiWidget} from '../EmojiWidget.js';
+import {Context} from "../Context.js";
 
 export default class EmojiModel {
     keywords;
-    emotion;
+    emotions;
     view;
 
     constructor(settings) {
-        this.emotion = settings.emotion;
+        this.emotions = settings.emotions;
         this.keywords = settings.keywords;
     }
 
     onClick (params) {
-        EmojiWidget.targetInput.value += this.emotion;
+        const emoji = this.emotions[Context.color] || this.emotions.gold;
+        EmojiWidget.targetInput.value += emoji;
     }
 
     setHidden(isVisible) {
