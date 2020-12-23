@@ -1,10 +1,11 @@
+import defaultSettings from "../settings/defaultSettings.js";
 
 export function createThemeButton(onChange) {
     const pseudoCheckbox = document.createElement('div');
     const checkbox = document.createElement('input');
     const label = document.createElement('label');
 
-    pseudoCheckbox.classList.add('theme_button');
+    pseudoCheckbox.classList.add(defaultSettings.classes.themeButton);
 
     const checkboxId = 'theme_button_checkbox';
     label.setAttribute('for', checkboxId);

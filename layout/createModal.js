@@ -6,10 +6,10 @@ import {createThemeButton} from "./createThemeButton.js";
 
 export function createModal(emojiCategoryList) {
     const modal = document.createElement('div');
-    modal.classList.add(defaultSettings.classes.modal);
+    modal.classList.add(defaultSettings.classes.modal.main);
 
     const nav = document.createElement('nav');
-    nav.classList.add('navigation');
+    nav.classList.add(defaultSettings.classes.navigation.main);
 
     const search = createSearch();
     const content = createContent(nav, emojiCategoryList);
@@ -24,14 +24,14 @@ export function createModal(emojiCategoryList) {
 
 function createNavTab(emojiCategoryList) {
     const button = document.createElement('button');
-    button.classList.add('navigation-item');
+    button.classList.add(defaultSettings.classes.navigation.item);
     button.textContent = emojiCategoryList.icon;
     return button;
 }
 
 function createContent(nav, emojiCategoryList) {
     const content = document.createElement('div');
-    content.classList.add('content');
+    content.classList.add(defaultSettings.classes.modal.content);
     for (const category of emojiCategoryList) {
         const button = createNavTab(category);
         const categoryBlock = createCategory(category);
@@ -58,7 +58,7 @@ function createFooter(modal) {
         }
     }
     const footer = document.createElement('footer');
-    footer.classList.add('settings');
+    footer.classList.add(defaultSettings.classes.modal.footer);
 
     footer.appendChild(createThemeButton(onThemeChange));
     footer.appendChild(createColorPanel())

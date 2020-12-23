@@ -1,4 +1,5 @@
 import {Context} from "../Context.js";
+import defaultSettings from "../settings/defaultSettings.js";
 
 export default class EmojiModel {
     keywords;
@@ -17,9 +18,9 @@ export default class EmojiModel {
 
     setHidden(isVisible) {
         if(isVisible) {
-            this.view.classList.remove('hide');
+            this.view.classList.remove(defaultSettings.classes.category.hide);
         } else {
-            this.view.classList.add('hide');
+            this.view.classList.add(defaultSettings.classes.category.hide);
         }
     }
 }

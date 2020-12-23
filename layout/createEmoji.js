@@ -1,4 +1,5 @@
 import {Context} from "../Context.js";
+import defaultSettings from "../settings/defaultSettings.js";
 
 export default function createEmoji(emojiModel) {
     function setEmoji(color) {
@@ -6,7 +7,7 @@ export default function createEmoji(emojiModel) {
     }
 
     const emoji = document.createElement('li');
-    emoji.classList.add('category_item');
+    emoji.classList.add(defaultSettings.classes.category.item);
     setEmoji(Context.color);
 
     Context.onChangeColor((color) => {
