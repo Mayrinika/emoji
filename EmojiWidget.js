@@ -8,7 +8,6 @@ import CategoryModel from './model/categoryModel.js';
 import {Context} from "./Context.js";
 
 export class EmojiWidget {
-    static targetInput;
     static emojiCategoryList = setEmojiCategoryList(emojiSettings);
     static modal = createModal(this.emojiCategoryList);
     input;
@@ -32,7 +31,7 @@ export class EmojiWidget {
         this.button.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            EmojiWidget.targetInput = this.input;
+            Context.targetInput = this.input;
 
             const coords = getCoords(this.input);
 
