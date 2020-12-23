@@ -1,4 +1,3 @@
-import {EmojiWidget} from "../EmojiWidget.js";
 import {Context} from "../Context.js";
 
 export default function createEmoji(emojiModel) {
